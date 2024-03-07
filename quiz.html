@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        body {
+            background-color: #333;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            background-color: transparent;
+        }
+        
+        form {
+            margin-right: 10px;
+        }
+
+        .heading {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+        }
+        
+        .form-group input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            cursor: pointer;
+        }
+        
+        .form-group input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                max-width: 100%;
+                margin: 0 auto;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .form-group {
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .heading {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 280px) {
+            .form-group input {
+                font-size: 14px;
+            }
+        }
+
+        html, body {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            var person1Name = document.getElementById("person1-name").value;
+            var person1Year = document.getElementById("person1-year").value;
+            var person2Name = document.getElementById("person2-name").value;
+            var person2Year = document.getElementById("person2-year").value;
+
+            if (person1Name === "" || person1Year === "" || person2Name === "" || person2Year === "") {
+                alert("Please fill in all fields.");
+                return false;
+            }
+
+            var nameRegex = /^[a-zA-Z\s]*$/;
+            if (!nameRegex.test(person1Name) || !nameRegex.test(person2Name)) {
+                alert("Name fields should only contain letters and spaces.");
+                return false;
+            }
+
+            var yearRegex = /^[a-zA-Z0-9]*$/;
+            if (!yearRegex.test(person1Year) || !yearRegex.test(person2Year)) {
+                alert("Year fields should only contain letters and numbers.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="heading">TECHVERSE</h1>
+        <form onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="person1-name">Person 1 Name:</label>
+                <input type="text" id="person1-name" name="person1-name" required>
+            </div>
+            <div class="form-group">
+                <label for="person1-year">Person 1 Year:</label>
+                <input type="text" id="person1-year" name="person1-year" required>
+            </div>
+            <div class="form-group">
+                <label for="person2-name">Person 2 Name:</label>
+                <input type="text" id="person2-name" name="person2-name" required>
+            </div>
+            <div class="form-group">
+                <label for="person2-year">Person 2 Year:</label>
+                <input type="text" id="person2-year" name="person2-year" required>
+            </div>
+            <div class="form-group">
+                <label for="person2-name">Person 3 Name:</label>
+                <input type="text" id="person2-name" name="person2-name" required>
+            </div>
+            <div class="form-group">
+                <label for="person2-year">Person 3 Year:</label>
+                <input type="text" id="person2-year" name="person2-year" required>
+            </div>
+            <div class="form-group" style="margin-left: 10px;">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
